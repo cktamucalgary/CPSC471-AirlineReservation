@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Joan Ching Kwan Tam</title>
+</head>
+<body>
+
+<style>
+.dropbtn {
+    background-color: #0087FF;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,2);
+}
+
+.dropdown-content a {
+    color: blue;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #0055FF;
+}
+
+#mapdiv {
+    float: right;
+    width: 1100px;
+    background-color: #b0e0e6;
+}
+
+</style>
+
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+<div class="dropdown-content">
+	<option value="bio"><a href="#bio">Biography</a></option>
+	<option value="resume"><a href="#res">Resume</a></option>
+	<option value="hobbies"><a href="#hob">Hobbies</a></option>
+	<option value="contact"><a href="#contact">Contact Info</a></option>
+	<option value="map"><a href="#map">Map</a></option>
+</div>
+</div>
+
+<h2>Image 1 of me</h2>
+<img src="Image/Image1.jpg" alt="Img1" style="width:945px;height:531px;">
+
+<h2>Image 2 of me</h2>
+<img src="Image/Image2.jpg" alt="Img2" style="width:600px;height:765px;">
+
+<h2>Joan Ching Kwan Tam</h2>
+
+<h1 id="bio"> Biography </h1>
+
+<p> My name is Joan Ching Kwan Tam. I was born in Hong Kong on July 18, 1995 and moved to Canada 
+on October 30, 1996. I have a dual citizenship as a Canadian citizen as well as a Hong Kong resident. I've
+lived in Calgary for most of my life in the NW section of the city, though I have moved houses 4 times. 
+I went to a Catholic school from grade 1 to grade 12, graduating from Notre Dame High School in 2013.
+After high school, I entered the University of Calgary as an engineering student. I am now in my fourth
+year of Geomatics Engineering with a minor in Computer Science and am enjoying learning about the high 
+tech side with topics such as satellite positoning and various GIS applications.</p>
+
+<pre>
+
+
+
+
+
+</pre>
+
+<h1 id="res"> Resume </h1>
+
+<ol type="I">
+
+<li>Education: </li>
+<pre>
+<b>Notre Dame High School</b>		2010 - 2013
+
+<b>University of Calgary</b>		2013 - Present
+Bachelor of Science in Geomatics Engineering | Minor in Computer Science
+Relevant Courses: Introduction to Geospatial Information Systems; Design and Implementation of Geospatial Information Systems
+
+</pre>
+
+<li> Skills: </li>
+<pre>
+<b>Programming:</b>
+C++
+Java
+SQL
+
+<strong>Other:</b>
+Time Management
+Detail Oriented
+Communication
+</pre>
+
+<li> Experience: </li>
+<pre>
+Calgary Co-op		Summer 2014, 2015 - Present
+<b>Grocery Utility Clerk</b>
+
+Efficiently completed all given tasks by working with other members of the grocery team to divide tasks or to complete them as a team
+Provided exceptional customer service by greeting every customer with a smile and aiding them upon request
+</pre>
+
+</ol>
+
+<pre>
+
+
+
+
+
+</pre>
+
+<h1 id="hob"> Hobbies </h1>
+
+<ul>
+
+<li> Gaming: </li>
+	<ul>
+	<li> Overwatch: <a href="https://playoverwatch.com/en-us/"> Official Website </a> </li>
+	<li> Skyrim: <a href="https://elderscrolls.bethesda.net/skyrim/">Official Website </a> </li>
+	</ul>
+
+<li> Hockey: <a href="https://www.nhl.com/flames">Website of the Calgary Flames </a> </li>
+
+<li> Badminton: <a href="http://www.badminton.ca/Home"> Website of Badminton Canada </a> </li>
+
+<li> Hiking: <a href="http://www.pc.gc.ca/eng/index.aspx"> Parks Canada </a> </li>
+
+</ul>
+
+<pre>
+
+
+
+
+
+</pre>
+
+<h1 id="contact"> Contact info </h1>
+
+<form>
+	Title: <br>
+	<input type="text" title="title">
+	<br>
+	Phone: <br>
+	<input type="text" title="phone">
+	<br>
+	Email Address: <br>
+	<input type="text" title="email">
+	<br>
+	Date: <br>
+	<input type="text" title="date">
+	<br>
+	Website: <br>
+	<input type="text" title="website">
+	<br>
+	Message: <br>
+	<input type="text" title="message">
+	<br>
+	<input type="submit" value="Submit">
+</form>
+
+<pre>
+
+
+
+
+
+</pre>
+
+<h1 id="map"> Map </h1>
+
+<img src="Image/WorldMap.png" alt="Map" usemap="#WorldMap" style="width:720px;height:360px;">
+
+<map name = "WorldMap"> 
+	<area shape ="circle" id="CCircle" coords="128,76,3" alt="Calgary" a href="http://www.calgary.ca/">
+</map>
+<br>
+
+</body>
+</html>
