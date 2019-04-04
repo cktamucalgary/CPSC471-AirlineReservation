@@ -13,13 +13,9 @@
 <h1>Book flights</h1>
 <div class="boxDiv">
 <form action="/loginAuth" method="POST">
-  Username or Email <br><input type="text" name = "username" placeholder="username or email" required/> </br><br>
-  Password <br><input type="password" name = "password" placeholder="password" required/></br><br>
-  Select your login mode <br>
-  <input type="radio" name="usrtype" value="customer" required> Customer
-  <input type="radio" name="usrtype" value="agent"> Booking Agent
-  <input type="radio" name="usrtype" value="staff"> Airline Staff <br><br>
-  <input type="submit" value = Login />
+  Flight Number <br><input type="text" name = "flightname" placeholder="Flight no." required/> </br><br>
+  Flight Date <br><input type="date" name = "flightdate" required/></br><br>
+  <input type="submit" value = Book />
 </form>
 </div>
 

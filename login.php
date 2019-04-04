@@ -16,9 +16,8 @@
   Username or Email <br><input type="text" name = "username" placeholder="username or email" required/> </br><br>
   Password <br><input type="password" name = "password" placeholder="password" required/></br><br>
   Select your login mode <br>
-  <input type="radio" name="usrtype" value="customer" required> Customer
-  <input type="radio" name="usrtype" value="agent"> Booking Agent
-  <input type="radio" name="usrtype" value="staff"> Airline Staff <br><br>
+  <input type="radio" name="usrtype" value="member" required> Member
+  <input type="radio" name="usrtype" value="admin"> Airline Admin <br><br>
   <input type="submit" value = Login />
 </form>
 </div>

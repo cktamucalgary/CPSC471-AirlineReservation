@@ -17,11 +17,7 @@
   <h1>Airline Booking System</h1>
 </div>
 <div>
-  <a href="/search">Search Upcoming Flights</span></br>
-  <a href="/login">Login</a> </br>
-  <a href="/registerCustomer">New Customer</a> </br>
-  <a href="/registerAgent">New Agent</a> </br>
-  <a href="/registerStaff">New Staff</a>
+	<h2> View Flights </h2>
 </div>
 
 </body>
