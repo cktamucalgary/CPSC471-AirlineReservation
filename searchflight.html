@@ -61,7 +61,7 @@
 </head>
 <body>
 <ul>
-  <li><a href="test.html">Home</a></li>
+  <li><a href="main.html">Home</a></li>
   <li><a class="active" href="searchflight.html">Search Flights</a></li>
   <li><a href="bookflight.html">Book Flights</a></li>
   <li style="float:right"><a href="login.html">Login</a></li>
@@ -79,12 +79,7 @@
   <h4 id="lbl_flightto">To</h4><input type="text" id="form_flightto" name = "searchtype" placeholder="Arrival City" required/></br><br> -->
   Select your login mode <br>
   <input type="submit" value = Search />
-  {% if error %}
-    <p class="error"><strong>Error:</strong> {{error}}</p>
-  {% endif %}
 </form>
-
-<a href="/">Go back</a>
 
 </body>
 
