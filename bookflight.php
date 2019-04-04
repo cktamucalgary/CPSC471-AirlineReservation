@@ -11,6 +11,7 @@
   <li style="float:right"><a href="login.php">Login</a></li>
 </ul>
 <h1>Book flights</h1>
+<div class="boxDiv">
 <form action="/loginAuth" method="POST">
   Username or Email <br><input type="text" name = "username" placeholder="username or email" required/> </br><br>
   Password <br><input type="password" name = "password" placeholder="password" required/></br><br>
@@ -20,6 +21,7 @@
   <input type="radio" name="usrtype" value="staff"> Airline Staff <br><br>
   <input type="submit" value = Login />
 </form>
+</div>
 
 </body>
 
