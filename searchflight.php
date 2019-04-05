@@ -9,6 +9,7 @@
   <li><a class="active" href="searchflight.php">Search Flights</a></li>
   <li><a href="bookflight.php">Book Flights</a></li>
   <li style="float:right"><a href="login.php">Login</a></li>
+  <li style="float:right"><a href="signup.php">Sign Up</a></li>
 </ul>
 <h1>Search Flights</h1>
 <!-- When we implement search, we can change the form action on the next line to a php file or something -->

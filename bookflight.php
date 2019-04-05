@@ -9,6 +9,7 @@
   <li><a href="searchflight.php">Search Flights</a></li>
   <li><a class="active" href="bookflight.php">Book Flights</a></li>
   <li style="float:right"><a href="login.php">Login</a></li>
+  <li style="float:right"><a href="signup.php">Sign Up</a></li>
 </ul>
 <h1>Book flights</h1>
 <div class="boxDiv">
