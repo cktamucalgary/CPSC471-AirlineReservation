@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-</head>
-<body>
-<ul>
-  <li><a href="main.php">Home</a></li>
-  <li><a href="searchflight.php">Search Flights</a></li>
-  <li><a href="bookflight.php">Book Flights</a></li>
-  <li style="float:right"><a class="active" href="login.php">Login</a></li>
-  <li style="float:right"><a href="signup.php">Sign Up</a></li>
-</ul>
+
+<?php include 'includes/header.php' ?>
 <h2>Login</h2>
 <div class="boxDiv">
 <form action="login.php" method="POST">
