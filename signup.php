@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Sign up</title>
-  <link rel="stylesheet" type="text/css" href="NavBar.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 <ul>
@@ -30,13 +30,13 @@ $mysqli = new mysqli("127.0.0.1", "root", "root", "Auth");
   if ($mysqli->connect_errno) {
     echo "Connected Successfully!";
   }
-  
+
   $stmt = $mysqli->prepare("INSERT INTO Login(email,password,isAdmin) VALUES (?,?,0)");
   $stmt->bind_param("ss",$form_username,$form_password);
   $stmt->execute();
 
   $stmt->close();
-  
+
 ?>
 
 </body>

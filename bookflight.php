@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>Book your Flights</title>
-  <link rel="stylesheet" type="text/css" href="NavBar.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 <ul>

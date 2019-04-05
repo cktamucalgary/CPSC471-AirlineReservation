@@ -1,20 +1,20 @@
- 
+
  body {
-	 background-image: url(images/cloud_bg.jpg);
+	 background-image: url('../images/cloud_bg.jpg');
 	 height: 100%;
 	 background-repeat: no-repeat;
 	 background-size: cover;
  }
- 
+
   #topDiv {
   color: black;
   padding: 0px;}
-  
+
   .boxDiv {
 	  border:3px solid gray;
 	  padding: 5px;
   }
-  
+
   ul {
   list-style-type: none;
         margin: 0;
@@ -28,11 +28,11 @@
   border: 1px solid #e7e7e7;
   background-color: #f3f3f3;
   }
-  
+
   li {
   float: left;
   }
-  
+
   li a {
   display: block;
   color: #666;
@@ -40,11 +40,11 @@
   padding: 14px 16px;
   text-decoration: none;
   }
-  
+
   li a:hover:not(.active) {
   background-color: #ddd;
   }
-  
+
   li a.active {
   color: white;
   background-color: #4682B4;
