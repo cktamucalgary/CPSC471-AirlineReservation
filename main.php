@@ -5,7 +5,5 @@
 <div>
 	<h2> View Flights </h2>
 </div>
-
 </body>
-
 </html>
