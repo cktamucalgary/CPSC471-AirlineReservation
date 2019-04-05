@@ -6,10 +6,10 @@
 </head>
 <body>
 <ul>
-  <li><a href="main.html">Home</a></li>
-  <li><a href="searchflight.html">Search Flights</a></li>
-  <li><a href="bookflight.html">Book Flights</a></li>
-  <li style="float:right"><a class="active" href="login.html">Login</a></li>
+  <li><a href="main.php">Home</a></li>
+  <li><a href="searchflight.php">Search Flights</a></li>
+  <li><a href="bookflight.php">Book Flights</a></li>
+  <li style="float:right"><a class="active" href="login.php">Login</a></li>
 </ul>
 <h2>Please enter your login information</h2>
 <div class="boxDiv">
