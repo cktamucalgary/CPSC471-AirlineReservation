@@ -1,4 +1,10 @@
 <?php include 'includes/header.php' ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search for Flights</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
 <h1>Search Flights</h1>
 <!-- When we implement search, we can change the form action on the next line to a php file or something -->
 <div class="boxDiv">

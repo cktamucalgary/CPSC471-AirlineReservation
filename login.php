@@ -1,5 +1,10 @@
-
 <?php include 'includes/header.php' ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Log in</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
 <h2>Login</h2>
 <div class="boxDiv">
 <form action="login.php" method="POST">
@@ -14,7 +19,7 @@ $form_username = $_POST['username'];
 $form_password = $_POST['password'];
 
 //This is terrible code but its basically server/username/password/db name
-$mysqli = new mysqli("127.0.0.1", "root", "root", "Auth");
+$mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
   if ($mysqli->connect_errno) {
     echo "Connected Successfully!";
   }

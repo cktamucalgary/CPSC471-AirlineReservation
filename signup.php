@@ -1,4 +1,10 @@
 <?php include 'includes/header.php' ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign up</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
 <h2>Sign up</h2>
 <div class="boxDiv">
 <form action="signup.php" method="POST">
