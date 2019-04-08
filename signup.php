@@ -43,9 +43,9 @@ if (isset($_SESSION["sesPersonID"])) {
     $stmt = $mysqli->prepare("INSERT INTO Person(firstName, middleName, lastName, phone, passportNo) VALUES (?,?,?,?,?)");
     $stmt->bind_param("sssss",$form_firstname,$form_middlename, $form_lastname,$form_phoneno,$form_passportno);
     $stmt->execute();
-    $insertID = ""+mysqli_insert_id($mysqli);
-    $smtq = $mysqli->prepare("INSERT INTO Member(personID, email, password) VALUES (?,?,?)");
-    $stmq->bind_param("sss",$insertID,$form_username,$form_password);
+    $insertID = mysqli_insert_id($mysqli);
+    $smtq = $mysqli->prepare("INSERT INTO Member(personID, email, password) VALUES (1,\"help\",\"query\")");
+
     $stmq->execute();
 
     
