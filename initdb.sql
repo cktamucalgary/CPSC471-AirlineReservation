@@ -2,19 +2,6 @@ DROP DATABASE IF EXISTS CPSC471;
 CREATE DATABASE CPSC471;
 USE CPSC471;
 
-DROP TABLE IF EXISTS CPSC471.Login;
-CREATE TABLE CPSC471.Login (
-    personID INT AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-	  isAdmin BOOLEAN NOT NULL,
-    PRIMARY KEY (personID)
-) ENGINE=INNODB;
-
-INSERT INTO CPSC471.Login (email, password, isAdmin) VALUES ('cktam@ucalgary.ca', 'password', true);
-INSERT INTO CPSC471.Login (email, password, isAdmin) VALUES ('muhammad.hassan1@ucalgary.ca', 'password', true);
-INSERT INTO CPSC471.Login (email, password, isAdmin) VALUES ('cole.parker@ucalgary.ca', 'password', true);
-
 DROP TABLE IF EXISTS CPSC471.Person;
 CREATE TABLE CPSC471.Person (
 	personID INT AUTO_INCREMENT,
@@ -22,20 +9,28 @@ CREATE TABLE CPSC471.Person (
 	middleName VARCHAR(255),
 	lastName VARCHAR(255) NOT NULL,
 	phone VARCHAR(15) NOT NULL,
-	email VARCHAR(255) NOT NULL,
 	passportNo VARCHAR(255) NOT NULL,
 	PRIMARY KEY (personID)
 ) ENGINE=INNODB;
+
+INSERT INTO CPSC471.Person (firstName, lastName, phone, passportNo) VALUES ('Joan','Tam','123456789','HD123');
+INSERT INTO CPSC471.Person (firstName, lastName, phone, passportNo) VALUES ('Umer','Hassan','123456780','HD456');
+INSERT INTO CPSC471.Person (firstName, lastName, phone, passportNo) VALUES ('Cole','Parker','23456789','HD789');
 
 DROP TABLE IF EXISTS CPSC471.Admin;
 CREATE TABLE CPSC471.Admin (
 	personID INT NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
+	isAdmin BOOLEAN NOT NULL,
 	PRIMARY KEY (personID),
 	FOREIGN KEY (personID) REFERENCES Person(personID),
 	UNIQUE(email)
 ) ENGINE=INNODB;
+
+INSERT INTO CPSC471.Admin (personID, email, password, isAdmin) VALUES ('1', 'cktam@ucalgary.ca', 'pw', true);
+INSERT INTO CPSC471.Admin (personID, email, password, isAdmin) VALUES ('2', 'muhammad.hassan1@ucalgary.ca', 'pw', true);
+INSERT INTO CPSC471.Admin (personID, email, password, isAdmin) VALUES ('3', 'cole.parker@ucalgary.ca', 'pw', true);
 
 DROP TABLE IF EXISTS CPSC471.Member;
 CREATE TABLE CPSC471.Member (
@@ -94,7 +89,7 @@ CREATE TABLE CPSC471.Flight (
 	planeNo VARCHAR(10) NOT NULL,
 	planeType VARCHAR(10) NOT NULL,
 	PRIMARY KEY (flightNo,flightDate),
-	FOREIGN KEY (adminID) REFERENCES Login(personID),
+	FOREIGN KEY (adminID) REFERENCES Admin(personID),
 	FOREIGN KEY (DAirportCode) REFERENCES Airport(airportCode),
 	FOREIGN KEY (AAirportCode) REFERENCES Airport(airportCode)
 ) ENGINE=INNODB;
@@ -108,7 +103,7 @@ CREATE TABLE CPSC471.Booking (
 	flightNo INT NOT NULL,
 	flightDate DATETIME NOT NULL,
 	PRIMARY KEY (seatRow, seatColumn),
-	FOREIGN KEY (personID) REFERENCES Login(personID),
+	FOREIGN KEY (personID) REFERENCES Member(personID),
 	FOREIGN KEY (flightNo,flightDate) REFERENCES Flight(flightNo,flightDate)
 ) ENGINE=INNODB;
 
@@ -133,7 +128,7 @@ CREATE TABLE CPSC471.CreditCard (
 	personID INT,
 	cardNumber INT NOT NULL,
 	expiryDate VARCHAR(255) NOT NULL,
-	FOREIGN KEY (personID) REFERENCES Login(personID)
+	FOREIGN KEY (personID) REFERENCES Member(personID)
 ) ENGINE=INNODB;
 
 DROP TABLE IF EXISTS CPSC471.Fare;
@@ -145,7 +140,7 @@ CREATE TABLE CPSC471.Fare (
 	flightDate DATETIME NOT NULL,
 	tax DOUBLE NOT NULL,
 	price DOUBLE NOT NULL,
-	FOREIGN KEY (personID) REFERENCES Login(personID),
+	FOREIGN KEY (personID) REFERENCES Member(personID),
 	FOREIGN KEY (seatRow,seatColumn) REFERENCES Booking(seatRow,seatColumn),
 	FOREIGN KEY (flightNo,flightDate) REFERENCES Flight(flightNo,flightDate)
 ) ENGINE=INNODB;
