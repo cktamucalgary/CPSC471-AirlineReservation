@@ -5,8 +5,7 @@
   <title>Sign up</title>
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<h2>Sign up</h2>
-<div class="boxDiv">
+
 
 </div>
 
@@ -15,6 +14,8 @@ session_start();
 if (isset($_SESSION["sesPersonID"])) {
   echo "Cannot signed up when logged in.";
 } else {
+  echo "<h2>Sign up</h2>";
+  echo "<div class=\"boxDiv\">";
   echo "<form action=\"signup.php\" method=\"POST\">";
   echo "Email <br><input type=\"text\" name = \"username\" placeholder=\"Email\" required/> </br><br>";
   echo "Password <br><input type=\"password\" name = \"password\" placeholder=\"Password\" required/></br><br>";

@@ -21,9 +21,7 @@ $form_password = $_POST['password'];
 
 //This is terrible code but its basically server/username/password/db name
 $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
-  if ($mysqli->connect_errno) {
-    echo "Connected Successfully!";
-  }
+
 
   $stmt = $mysqli->prepare("SELECT personID, isAdmin FROM Login WHERE email=? AND password=?");
   $stmt->bind_param("ss",$form_username,$form_password);
@@ -38,8 +36,6 @@ $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
     $_SESSION["sesIsAdmin"] = $isAdmin;
     header("Location:main.php", true, 301);
     exit();
-  } else {
-    echo '{"Success": false, "personID_id": null, "isAdmin": null}';
   }
   $stmt->close();
 
