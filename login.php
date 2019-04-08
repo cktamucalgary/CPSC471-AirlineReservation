@@ -1,5 +1,10 @@
-
 <?php include 'includes/header.php' ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Log in</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
 <h2>Login</h2>
 <div class="boxDiv">
 <form action="login.php" method="POST">
@@ -10,17 +15,13 @@
 </div>
 
 <?php
-if(isset($_POST['username']) && isset($_POST['username'])) {
-  $form_username = $_POST['username'];
-  $form_password = $_POST['password'];
-}
-
+session_start();
+$form_username = $_POST['username'];
+$form_password = $_POST['password'];
 
 //This is terrible code but its basically server/username/password/db name
-$mysqli = new mysqli("127.0.0.1", "root", "", "CPSC471");
-  if ($mysqli->connect_errno) {
-    echo "Connected Successfully!";
-  }
+$mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
+
 
   $stmt = $mysqli->prepare("SELECT personID, isAdmin FROM Login WHERE email=? AND password=?");
   $stmt->bind_param("ss",$form_username,$form_password);
@@ -31,8 +32,10 @@ $mysqli = new mysqli("127.0.0.1", "root", "", "CPSC471");
     $stmt->bind_result($personID, $isAdmin);
     $stmt->fetch();
     echo '{"Success": true, "personID":' . $personID . ', "isAdmin":' . $isAdmin . '}';
-  } else {
-    echo '{"Success": false, "personID_id": null, "isAdmin": null}';
+    $_SESSION["sesPersonID"] = $personID;
+    $_SESSION["sesIsAdmin"] = $isAdmin;
+    header("Location:main.php", true, 301);
+    exit();
   }
   $stmt->close();
 
