@@ -28,15 +28,9 @@ CREATE TABLE CPSC471.Admin (
 	UNIQUE(email)
 ) ENGINE=INNODB;
 
-<<<<<<< HEAD
 INSERT INTO CPSC471.Admin (personID, email, password) VALUES ('1', 'cktam@ucalgary.ca', 'pw');
 INSERT INTO CPSC471.Admin (personID, email, password) VALUES ('2', 'muhammad.hassan1@ucalgary.ca', 'pw');
 INSERT INTO CPSC471.Admin (personID, email, password) VALUES ('3', 'cole.parker@ucalgary.ca', 'pw');
-=======
-INSERT INTO CPSC471.Admin (personID, email, password, isAdmin) VALUES ('1', 'cktam@ucalgary.ca', 'pw', true);
-INSERT INTO CPSC471.Admin (personID, email, password, isAdmin) VALUES ('2', 'muhammad.hassan1@ucalgary.ca', 'pw', true);
-INSERT INTO CPSC471.Admin (personID, email, password, isAdmin) VALUES ('3', 'cole.parker@ucalgary.ca', 'pw', true);
->>>>>>> 9d988f39454862afcd38bd054d7c2a7bfafb2ed4
 
 DROP TABLE IF EXISTS CPSC471.Member;
 CREATE TABLE CPSC471.Member (
