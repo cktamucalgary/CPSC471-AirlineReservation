@@ -15,6 +15,7 @@
 </div>
 
 <?php
+session_start();
 $form_username = $_POST['username'];
 $form_password = $_POST['password'];
 
@@ -33,6 +34,8 @@ $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
     $stmt->bind_result($personID, $isAdmin);
     $stmt->fetch();
     echo '{"Success": true, "personID":' . $personID . ', "isAdmin":' . $isAdmin . '}';
+    $_SESSION["sesPersonID"] = $personID;
+    $_SESSION["sesIsAdmin"] = $isAdmin;
   } else {
     echo '{"Success": false, "personID_id": null, "isAdmin": null}';
   }

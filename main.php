@@ -7,6 +7,10 @@
 </head>
 <div id="topDiv">
   <h1>Airline Booking System</h1>
+  <?php
+  session_start();
+  print_r($_SESSION);
+  ?>
 </div>
 <div>
 	<h2> View Flights </h2>

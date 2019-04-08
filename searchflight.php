@@ -8,7 +8,11 @@
 <h1>Search Flights</h1>
 <!-- When we implement search, we can change the form action on the next line to a php file or something -->
 <div class="boxDiv">
+<?php
+session_start();
+?>
 <form action="/loginAuth" method="POST">
+
   <input type="radio" name="searchtype" value="radio_flightnum"> By Flight Number
   <input type="radio" name="searchtype" value="radio_route"> Route <br>
 
