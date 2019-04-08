@@ -44,12 +44,11 @@ if (isset($_SESSION["sesPersonID"])) {
     $stmt->bind_param("sssss",$form_firstname,$form_middlename, $form_lastname,$form_phoneno,$form_passportno);
     $stmt->execute();
     $insertID = mysqli_insert_id($mysqli);
-    $smtq = $mysqli->prepare("INSERT INTO Member(personID, email, password) VALUES (1,\"help\",\"query\")");
 
+    $smtq = $mysqli->prepare("INSERT INTO Member(personID, email, password) VALUES (?,?,?)");
+    $stmq->bind_param("sss",$insertID,$form_username,$form_password);
     $stmq->execute();
-
     
-  
     $stmt->close();
     $stmq->close();
   }
