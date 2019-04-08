@@ -23,17 +23,18 @@ $form_password = $_POST['password'];
 $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
 
 
-  $stmt = $mysqli->prepare("SELECT personID, isAdmin FROM Login WHERE email=? AND password=?");
-  $stmt->bind_param("ss",$form_username,$form_password);
+  $stmt = $mysqli->prepare("SELECT personID FROM Admin WHERE email=? and password=?
+  UNION
+  SELECT personID FROM member WHERE email=? and password=?");
+  $stmt->bind_param("ssss",$form_username,$form_password, $form_username, $form_password);
   $stmt->execute();
   $stmt->store_result();
 
   if ($stmt->num_rows() == 1) {
-    $stmt->bind_result($personID, $isAdmin);
+    $stmt->bind_result($personID);
     $stmt->fetch();
-    echo '{"Success": true, "personID":' . $personID . ', "isAdmin":' . $isAdmin . '}';
     $_SESSION["sesPersonID"] = $personID;
-    $_SESSION["sesIsAdmin"] = $isAdmin;
+    
     header("Location:main.php", true, 301);
     exit();
   }

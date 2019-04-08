@@ -22,6 +22,7 @@ CREATE TABLE CPSC471.Admin (
 	personID INT NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
+	isAdmin BOOLEAN NOT NULL,
 	PRIMARY KEY (personID),
 	FOREIGN KEY (personID) REFERENCES Person(personID),
 	UNIQUE(email)
