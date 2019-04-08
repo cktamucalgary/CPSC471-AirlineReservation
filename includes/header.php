@@ -8,6 +8,7 @@
   <li><a href="searchflight.php">Search Flights</a></li>
   <li><a href="bookflight.php">Book Flights</a></li>
   <li><a href="manageflight.php">Manage Flights</a></li>
+  <li style="float:right"><a href="logout.php">Logout</a></li>
   <li style="float:right"><a href="login.php">Login</a></li>
   <li style="float:right"><a href="signup.php">Sign Up</a></li>
 </ul>
