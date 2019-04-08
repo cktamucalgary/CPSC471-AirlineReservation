@@ -21,12 +21,7 @@
     echo "Welcome!";
   }
   
-  echo "<form action=\"main.php\" method=\"POST\">";
-  echo "Flight Number <br><input type=\"text\" name = \"flightNo\" placeholder=\"Flight #\" required/> </br><br>";
-  echo "Flight Date <br><input type=\"date\" name = \"flightDate\" /> </br><br>";
-  echo "<input type=\"submit\" value = \"Search Flights\" />";
-  echo "</form>";
-echo "</div>";
+  
 ?>
 </body>
 </html>
