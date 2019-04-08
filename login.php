@@ -10,11 +10,14 @@
 </div>
 
 <?php
-$form_username = $_POST['username'];
-$form_password = $_POST['password'];
+if(isset($_POST['username']) && isset($_POST['username'])) {
+  $form_username = $_POST['username'];
+  $form_password = $_POST['password'];
+}
+
 
 //This is terrible code but its basically server/username/password/db name
-$mysqli = new mysqli("127.0.0.1", "root", "root", "Auth");
+$mysqli = new mysqli("127.0.0.1", "root", "", "CPSC471");
   if ($mysqli->connect_errno) {
     echo "Connected Successfully!";
   }

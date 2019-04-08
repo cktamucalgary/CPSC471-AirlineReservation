@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Book your Flights</title>
+  <title>Airline Reservation System</title>
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>

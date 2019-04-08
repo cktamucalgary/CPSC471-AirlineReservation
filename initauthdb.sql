@@ -6,7 +6,7 @@ CREATE TABLE CPSC471.Login (
     personID INT AUTO_INCREMENT,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-	  isAdmin BOOLEAN NOT NULL,
+	  isAdmin BOOLEAN NOT NULL DEFAULT false,
     PRIMARY KEY (personID)
 ) ENGINE=INNODB;
 
