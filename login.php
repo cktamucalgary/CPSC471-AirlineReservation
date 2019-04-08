@@ -36,6 +36,8 @@ $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
     echo '{"Success": true, "personID":' . $personID . ', "isAdmin":' . $isAdmin . '}';
     $_SESSION["sesPersonID"] = $personID;
     $_SESSION["sesIsAdmin"] = $isAdmin;
+    header("Location:main.php", true, 301);
+    exit();
   } else {
     echo '{"Success": false, "personID_id": null, "isAdmin": null}';
   }
