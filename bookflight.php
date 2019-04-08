@@ -8,7 +8,10 @@
 <h1>Book flights</h1>
 <div class="boxDiv">
 <?php
-session_start();
+if(!isset($_SESSION))
+   {
+       session_start();
+   } 
 ?>
 <form action="/loginAuth" method="POST">
   Flight Number <br><input type="text" name = "flightname" placeholder="Flight no." required/> </br><br>

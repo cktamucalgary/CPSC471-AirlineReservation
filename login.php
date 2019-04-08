@@ -15,7 +15,10 @@
 </div>
 
 <?php
-session_start();
+if(!isset($_SESSION))
+   {
+       session_start();
+   } 
 $form_username = $_POST['username'];
 $form_password = $_POST['password'];
 
@@ -34,7 +37,7 @@ $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
     $stmt->bind_result($personID);
     $stmt->fetch();
     $_SESSION["sesPersonID"] = $personID;
-    
+
     header("Location:main.php", true, 301);
     exit();
   }

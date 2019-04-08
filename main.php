@@ -8,7 +8,10 @@
 <div id="topDiv">
   <h1>Airline Booking System</h1>
   <?php
-  session_start();
+  if(!isset($_SESSION))
+   {
+       session_start();
+   } 
   if (isset($_SESSION["sesPersonID"])) {
     echo "Welcome, " . $_SESSION["sesPersonID"] . ".";
   } else {

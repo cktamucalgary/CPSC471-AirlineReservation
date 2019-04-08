@@ -9,7 +9,10 @@
 <!-- When we implement search, we can change the form action on the next line to a php file or something -->
 <div class="boxDiv">
 <?php
-session_start();
+if(!isset($_SESSION))
+   {
+       session_start();
+   } 
 ?>
 <form action="/searchFlight" method="POST">
 

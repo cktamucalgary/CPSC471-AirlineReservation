@@ -10,7 +10,10 @@
 </div>
 
 <?php
-session_start();
+if(!isset($_SESSION))
+   {
+       session_start();
+   }
 if (isset($_SESSION["sesPersonID"])) {
   echo "Cannot signed up when logged in.";
 } else {
@@ -33,17 +36,17 @@ if (isset($_SESSION["sesPersonID"])) {
   $form_passportno = $_POST['passportno'];
   $form_username = $_POST['username'];
   $form_password = $_POST['password'];
-  
+
   //This is terrible code but its basically server/username/password/db name
   $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
     if ($mysqli->connect_errno) {
       echo "Connected Successfully!";
     }
-  
+
     $stmt = $mysqli->prepare("INSERT INTO Login(email,password,isAdmin) VALUES (?,?,0)");
     $stmt->bind_param("ss",$form_username,$form_password);
     $stmt->execute();
-  
+
     $stmt->close();
   }
 
