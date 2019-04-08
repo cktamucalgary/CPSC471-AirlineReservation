@@ -9,7 +9,11 @@
   <h1>Airline Booking System</h1>
   <?php
   session_start();
-  echo "Welcome, " . $_SESSION["sesPersonID"] . ".";
+  if (isset($_SESSION["sesPersonID"])) {
+    echo "Welcome, " . $_SESSION["sesPersonID"] . ".";
+  } else {
+    echo "Welcome!";
+  }
   ?>
 </div>
 <div>
