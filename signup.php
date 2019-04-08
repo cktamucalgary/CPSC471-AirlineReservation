@@ -45,10 +45,10 @@ if (isset($_SESSION["sesPersonID"])) {
     $stmt->execute();
     $insertID = mysqli_insert_id($mysqli);
 
-    $smtq = $mysqli->prepare("INSERT INTO Member(personID, email, password) VALUES (?,?,?)");
+    $stmq = $mysqli->prepare("INSERT INTO Member(personID, email, password) VALUES (?,?,?)");
     $stmq->bind_param("sss",$insertID,$form_username,$form_password);
     $stmq->execute();
-    
+
     $stmt->close();
     $stmq->close();
   }
