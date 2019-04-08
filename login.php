@@ -29,12 +29,18 @@ $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
   $stmt->bind_param("ssss",$form_username,$form_password, $form_username, $form_password);
   $stmt->execute();
   $stmt->store_result();
-
+  
   if ($stmt->num_rows() == 1) {
     $stmt->bind_result($personID);
     $stmt->fetch();
     $_SESSION["sesPersonID"] = $personID;
-    
+    $stms = $mysqli->prepare("SELECT personID FROM Admin WHERE personID=?");
+    $stms->bind_param("s",$personID);
+    $stms->execute();
+    $stms->store_result();
+    if($stms->num_rows() == 1) {
+      $_SESSION["sesIsAdmin"] = true;
+    }
     header("Location:main.php", true, 301);
     exit();
   }

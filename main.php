@@ -11,6 +11,9 @@
   session_start();
   if (isset($_SESSION["sesPersonID"])) {
     echo "Welcome, " . $_SESSION["sesPersonID"] . ".";
+    if (isset($_SESSION["sesIsAdmin"]) && $_SESSION["sesIsAdmin"]) {
+      echo " You are an admin.";
+    }
   } else {
     echo "Welcome!";
   }
