@@ -15,6 +15,45 @@ INSERT INTO CPSC471.Login (email, password, isAdmin) VALUES ('cktam@ucalgary.ca'
 INSERT INTO CPSC471.Login (email, password, isAdmin) VALUES ('muhammad.hassan1@ucalgary.ca', 'password', true);
 INSERT INTO CPSC471.Login (email, password, isAdmin) VALUES ('cole.parker@ucalgary.ca', 'password', true);
 
+DROP TABLE IF EXISTS CPSC471.Person;
+CREATE TABLE CPSC471.Person (
+	personID INT AUTO_INCREMENT,
+	firstName VARCHAR(255) NOT NULL,
+	middleName VARCHAR(255),
+	lastName VARCHAR(255) NOT NULL,
+	phone VARCHAR(15) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	passportNo VARCHAR(255) NOT NULL,
+	PRIMARY KEY (personID)
+) ENGINE=INNODB;
+
+DROP TABLE IF EXISTS CPSC471.Admin;
+CREATE TABLE CPSC471.Admin (
+	personID INT NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	PRIMARY KEY (personID),
+	FOREIGN KEY (personID) REFERENCES Person(personID),
+	UNIQUE(email)
+) ENGINE=INNODB;
+
+DROP TABLE IF EXISTS CPSC471.Member;
+CREATE TABLE CPSC471.Member (
+	personID INT NOT NULL,
+	email VARCHAR(255) UNIQUE,
+	password VARCHAR(255) NOT NULL,
+	PRIMARY KEY (personID),
+	FOREIGN KEY (personID) REFERENCES Person(personID),
+	UNIQUE(email)
+) ENGINE=INNODB;
+
+DROP TABLE IF EXISTS CPSC471.Guest;
+CREATE TABLE CPSC471.Guest (
+	personID INT NOT NULL,
+	PRIMARY KEY (personID),
+	FOREIGN KEY (personID) REFERENCES Person(personID)
+) ENGINE=INNODB;
+
 DROP TABLE IF EXISTS CPSC471.Plane;
 CREATE TABLE CPSC471.Plane (
 	serialNo VARCHAR(255),
