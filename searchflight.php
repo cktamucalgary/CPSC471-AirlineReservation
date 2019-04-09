@@ -28,8 +28,6 @@ if(!isset($_SESSION))
 
 
   $depart = $_GET['form_dap'];
-
-
    $arrive = $_GET['form_aap'];
    $passengers = $_GET['form_numpass'];
    $date = $_GET['form_flightdate'];
@@ -59,6 +57,9 @@ if(!isset($_SESSION))
         //  ."Time of Departure: ". $row['AAirportCode']."<br>"
           ."Arrival Time: ". $row['scheduledAtime']."<br>";
         //  ."Fare: ". $row['AAirportCode']."<br>"
+          // if (isset($_SESSION["sesPersonID"])) {
+          //   echo "<a href='main.php'><button>Book Now</button></a>";
+          // }
     }
 
     $stmt->close();

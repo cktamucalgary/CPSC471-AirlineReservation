@@ -11,6 +11,7 @@
 <?php
 	echo "<h2> View Flights </h2>";
 	 echo "<div class=\"boxDiv\">";
+  
   if(!isset($_SESSION))
    {
        session_start();
