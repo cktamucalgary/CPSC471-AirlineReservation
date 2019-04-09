@@ -60,6 +60,7 @@ DROP TABLE IF EXISTS CPSC471.Plane;
 CREATE TABLE CPSC471.Plane (
 	serialNo VARCHAR(255),
 	NoOfSeats INT NOT NULL,
+	OccupiedSeats INT NOT NULL DEFAULT 0,
 	company VARCHAR(255) NOT NULL,
 	planeType VARCHAR(10) NOT NULL,
 	PRIMARY KEY(serialNo)
@@ -80,6 +81,9 @@ CREATE TABLE CPSC471.Airport (
 INSERT INTO CPSC471.Airport(airportCode,city,airportName) VALUES ('YYC','Calgary','Calgary International Airport');
 INSERT INTO CPSC471.Airport(airportCode,city,airportName) VALUES ('YVR','Vancouver','Vancouver International Airport');
 INSERT INTO CPSC471.Airport(airportCode,city,airportName) VALUES ('NRT','Tokyo','Narita International Airport');
+INSERT INTO CPSC471.Airport(airportCode,city,airportName) VALUES ('AAA','Aaana','Aana Airport');
+INSERT INTO CPSC471.Airport(airportCode,city,airportName) VALUES ('YWG','Winnipeg','Winnipeg International Airport');
+INSERT INTO CPSC471.Airport(airportCode,city,airportName) VALUES ('YYJ','Victoria','Victoria International Airport');
 
 DROP TABLE IF EXISTS CPSC471.Terminal;
 CREATE TABLE CPSC471.Terminal (
@@ -94,6 +98,9 @@ CREATE TABLE CPSC471.Terminal (
 INSERT INTO CPSC471.Terminal(airportCode,Gate,terminalType,terminalStatus) VALUES ('YYC','C10','Domestic','Boarding');
 INSERT INTO CPSC471.Terminal(airportCode,Gate,terminalType,terminalStatus) VALUES ('YVR','D58','International','Arrived');
 INSERT INTO CPSC471.Terminal(airportCode,Gate,terminalType,terminalStatus) VALUES ('NRT','J77','International','Departed');
+INSERT INTO CPSC471.Terminal(airportCode,Gate,terminalType,terminalStatus) VALUES ('AAA','D10','Domestic','Boarding');
+INSERT INTO CPSC471.Terminal(airportCode,Gate,terminalType,terminalStatus) VALUES ('YWG','D18','International','Arrived');
+INSERT INTO CPSC471.Terminal(airportCode,Gate,terminalType,terminalStatus) VALUES ('YYJ','J37','International','Departed');
 
 DROP TABLE IF EXISTS CPSC471.Flight;
 CREATE TABLE CPSC471.Flight (
@@ -103,6 +110,7 @@ CREATE TABLE CPSC471.Flight (
 	duration VARCHAR(255) NOT NULL,
 	DAirportCode VARCHAR(10) NOT NULL,
 	AAirportCode VARCHAR(10) NOT NULL,
+	scheduledDtime VARCHAR(10) NOT NULL,
 	scheduledAtime VARCHAR(10) NOT NULL,
 	planeNo VARCHAR(10) NOT NULL,
 	planeType VARCHAR(10) NOT NULL,
@@ -112,9 +120,13 @@ CREATE TABLE CPSC471.Flight (
 	FOREIGN KEY (AAirportCode) REFERENCES Airport(airportCode)
 ) ENGINE=INNODB;
 
-INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-08','1','1h 19m','YYC','YVR','08:30','ABC123','A380');
-INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-09','2','9h 12m','YVR','NRT','13:25','DEF456','A380');
-INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-05','3','10h 45m','YYC','NRT','17:05','GHI789','777X');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-08','1','1h 19m','YYC','YVR','08:30','10:30','ABC123','A380');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-09','2','9h 12m','YVR','NRT','13:25','10:31','DEF456','A380');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-05','3','10h 45m','YYC','NRT','17:05','11:12','GHI789','777X');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-10','1','1h 19m','YYC','AAA','08:30','10:30','ABC123','A380');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-09','2','9h 12m','YVR','YWG','13:25','10:31','DEF456','A380');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-05','3','10h 45m','YYC','YYJ','17:05','11:12','GHI789','777X');
+
 
 DROP TABLE IF EXISTS CPSC471.Booking;
 CREATE TABLE CPSC471.Booking (
@@ -143,7 +155,7 @@ CREATE TABLE CPSC471.Baggage (
 	bagHeight DOUBLE NOT NULL,
 	bagWidth DOUBLE NOT NULL,
 	bagWeight DOUBLE NOT NULL,
-	travelClass VARCHAR(255) NOT NULL,	
+	travelClass VARCHAR(255) NOT NULL,
 	PRIMARY KEY (tagNo),
 	FOREIGN KEY (flightNo) REFERENCES Flight(flightNo),
 	FOREIGN KEY (seatRow,seatColumn) REFERENCES Booking(seatRow,seatColumn)
