@@ -40,7 +40,7 @@ if(!isset($_SESSION))
       echo "Connected Successfully!";
     }
     else {
-      echo $depart;
+      //echo $depart;
     }
 
     $stmt = $mysqli->prepare("SELECT * FROM flight
@@ -57,7 +57,7 @@ if(!isset($_SESSION))
           ."Departure: ". $row['DAirportCode']."<br>"
           ."Arrival: ". $row['AAirportCode']."<br>"
         //  ."Time of Departure: ". $row['AAirportCode']."<br>"
-          ."Arrival Time: ". $row['scheduledAtime']."<br>"
+          ."Arrival Time: ". $row['scheduledAtime']."<br>";
         //  ."Fare: ". $row['AAirportCode']."<br>"
     }
 
