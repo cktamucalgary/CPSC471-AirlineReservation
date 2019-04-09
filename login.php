@@ -15,7 +15,11 @@
 </div>
 
 <?php
-session_start();
+if(!isset($_SESSION))
+ {
+     session_start();
+ }
+
 $form_username = $_POST['username'];
 $form_password = $_POST['password'];
 
@@ -29,7 +33,7 @@ $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
   $stmt->bind_param("ssss",$form_username,$form_password, $form_username, $form_password);
   $stmt->execute();
   $stmt->store_result();
-  
+
   if ($stmt->num_rows() == 1) {
     $stmt->bind_result($personID);
     $stmt->fetch();
