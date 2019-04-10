@@ -135,14 +135,15 @@ CREATE TABLE CPSC471.Booking (
 	gateNo VARCHAR(255) NOT NULL,
 	flightNo INT NOT NULL,
 	flightDate DATE NOT NULL,
+	travelClass VARCHAR(255) NOT NULL,
 	PRIMARY KEY (seatRow, seatColumn),
 	FOREIGN KEY (personID) REFERENCES Member(personID),
 	FOREIGN KEY (flightNo,flightDate) REFERENCES Flight(flightNo,flightDate)
 ) ENGINE=INNODB;
 
-INSERT INTO CPSC471.Booking(personID,seatRow,seatColumn,gateNo,flightNo,flightDate) VALUES ('4','5','1','D58','1','2019-04-08');
-INSERT INTO CPSC471.Booking(personID,seatRow,seatColumn,gateNo,flightNo,flightDate) VALUES ('5','28','3','C10','2','2019-04-09');
-INSERT INTO CPSC471.Booking(personID,seatRow,seatColumn,gateNo,flightNo,flightDate) VALUES ('6','12','2','J77','3','2019-04-05');
+INSERT INTO CPSC471.Booking(personID,seatRow,seatColumn,gateNo,flightNo,flightDate, travelClass) VALUES ('4','5','1','D58','1','2019-04-08','Economy');
+INSERT INTO CPSC471.Booking(personID,seatRow,seatColumn,gateNo,flightNo,flightDate, travelClass) VALUES ('5','28','3','C10','2','2019-04-09','Business');
+INSERT INTO CPSC471.Booking(personID,seatRow,seatColumn,gateNo,flightNo,flightDate, travelClass) VALUES ('6','12','2','J77','3','2019-04-05','Economy');
 
 DROP TABLE IF EXISTS CPSC471.Baggage;
 CREATE TABLE CPSC471.Baggage (
@@ -154,15 +155,14 @@ CREATE TABLE CPSC471.Baggage (
 	bagHeight DOUBLE NOT NULL,
 	bagWidth DOUBLE NOT NULL,
 	bagWeight DOUBLE NOT NULL,
-	travelClass VARCHAR(255) NOT NULL,
 	PRIMARY KEY (tagNo),
 	FOREIGN KEY (flightNo) REFERENCES Flight(flightNo),
 	FOREIGN KEY (seatRow,seatColumn) REFERENCES Booking(seatRow,seatColumn)
 ) ENGINE=INNODB;
 
-INSERT INTO CPSC471.Baggage(seatRow,seatColumn,flightNo,bagLength,bagHeight,bagWidth,bagWeight,travelClass) VALUES ('5','1','1','10','10','10','20.998','Economy');
-INSERT INTO CPSC471.Baggage(seatRow,seatColumn,flightNo,bagLength,bagHeight,bagWidth,bagWeight,travelClass) VALUES ('28','3','2','20','20','20','30.034','Business');
-INSERT INTO CPSC471.Baggage(seatRow,seatColumn,flightNo,bagLength,bagHeight,bagWidth,bagWeight,travelClass) VALUES ('12','2','3','30','10','15','15.789','Premium');
+INSERT INTO CPSC471.Baggage(seatRow,seatColumn,flightNo,bagLength,bagHeight,bagWidth,bagWeight) VALUES ('5','1','1','10','10','10','20.998');
+INSERT INTO CPSC471.Baggage(seatRow,seatColumn,flightNo,bagLength,bagHeight,bagWidth,bagWeight) VALUES ('28','3','2','20','20','20','30.034');
+INSERT INTO CPSC471.Baggage(seatRow,seatColumn,flightNo,bagLength,bagHeight,bagWidth,bagWeight) VALUES ('12','2','3','30','10','15','15.789');
 
 DROP TABLE IF EXISTS CPSC471.Fare;
 CREATE TABLE CPSC471.Fare (
