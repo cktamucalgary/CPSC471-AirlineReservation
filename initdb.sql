@@ -155,7 +155,6 @@ CREATE TABLE CPSC471.Baggage (
 	bagHeight DOUBLE NOT NULL,
 	bagWidth DOUBLE NOT NULL,
 	bagWeight DOUBLE NOT NULL,
-	travelClass VARCHAR(255) NOT NULL,
 	PRIMARY KEY (tagNo),
 	FOREIGN KEY (flightNo) REFERENCES Flight(flightNo),
 	FOREIGN KEY (seatRow,seatColumn) REFERENCES Booking(seatRow,seatColumn)
