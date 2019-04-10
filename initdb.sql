@@ -66,7 +66,7 @@ CREATE TABLE CPSC471.Plane (
 ) ENGINE=INNODB;
 
 INSERT INTO CPSC471.Plane(serialNo, NoOfSeats, company, planeType) VALUES ('ABC123',525,'Airbus','A380');
-INSERT INTO CPSC471.Plane(serialNo, NoOfSeats, company, planeType) VALUES ('DEC456',200, 'Boeing','777X');
+INSERT INTO CPSC471.Plane(serialNo, NoOfSeats, company, planeType) VALUES ('DEF456',200, 'Boeing','777X');
 INSERT INTO CPSC471.Plane(serialNo, NoOfSeats, company, planeType) VALUES ('GHI789',375,'Bombardier','Q400');
 
 DROP TABLE IF EXISTS CPSC471.Airport;

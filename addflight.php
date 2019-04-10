@@ -27,12 +27,9 @@ if(!isset($_SESSION))
     if(isset($_POST['flightdate']) && isset($_POST['flightduration']) && isset($_POST['departureairport']) 
     && isset($_POST['arrivalairport']) && isset($_POST['departuretime']) && isset($_POST['arrivaltime']) && isset($_POST['planenumber'])
     && isset($_POST['planetype'])) {
-      echo $_SESSION['sesPersonID'];
-      $stmt = $mysqli->prepare("INSERT INTO Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES (flightdate=?, adminID=?, flightduration=?, departureairport=?, arrivalairport=?, departuretime=?, arrivaltime=?, planenumber=?, planetype=?");
+      $stmt = $mysqli->prepare("INSERT INTO Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES (?,?,?,?,?,?,?,?,?)");
       $stmt->bind_param("sisssssss", $_POST['flightdate'], $_SESSION['sesPersonID'], $_POST['flightduration'], $_POST['departureairport'], $_POST['arrivalairport'], $_POST['departuretime'], $_POST['arrivaltime'], $_POST['planenumber'], $_POST['planetype']);
       $stmt->execute();
-
-      echo "Hello";
   
       echo "Success! You have added this flight.";
       header("Location:main.php", true, 301);
