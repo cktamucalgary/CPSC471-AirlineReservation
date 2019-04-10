@@ -44,7 +44,7 @@ if ($mysqli->connect_errno) {
   echo "<input type=\"submit\" name=\"bookButton\" value = \"Book Flight\" />";
   echo "</form>";
   echo "</div>";
-  if(isset($_SESSION['flightNumber']) && isset($_SESSION['flightDate']) && isset($_POST['class']) && (isset($creditCard) || (isset($_POST['expiryDate']) &&isset($_POST['creditCard'])))) {
+  if(isset($_SESSION['flightNumber']) && isset($_SESSION['flightDate']) && isset($_POST['class']) && (isset($creditCard) || (isset($_POST['expiryDate']) && isset($_POST['creditCard'])))) {
     $flightname = $_SESSION['flightNumber'];
     $date = $_SESSION['flightDate'];
     if (isset($_POST["class"])) {
@@ -77,6 +77,7 @@ if ($mysqli->connect_errno) {
     $stmt = $mysqli->prepare("INSERT INTO fare (personID, seatRow, seatColumn, flightNo, flightDate, tax, price) VALUES (?,'4','5',?,?,?,?)");
     $stmt->bind_param("sssdd",$_SESSION["sesPersonID"], $flightname, $date, $tax, $fare);
     $stmt->execute();
+    
     if (!isset($creditCard)) {
       $stmt = $mysqli->prepare("INSERT INTO CreditCard (personID, cardNumber, expiryDate) VALUES (?,?,?)");
       $stmt->bind_param("sss",$_SESSION["sesPersonID"], $_POST['creditCard'], $_POST['expiryDate']);
