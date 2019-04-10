@@ -18,7 +18,7 @@ if(!isset($_SESSION))
 <form action="bookflight.php" method="POST">
   Flight Number <br><input type="text" name = "flightname" placeholder="Flight no." required/> </br><br>
   Flight Date <br><input type="date" name = "flightdate" required/></br><br>
-  <input type="submit" value = Book />
+  <input type="submit" name="bookButton" value = "Show Fare" />
 </form>
 </div>
 <?php }
@@ -44,14 +44,11 @@ else {
     $stmt->execute();
     $result = $stmt->get_result();
     if($result->num_rows === 0) exit('No flights found');
+    
+    $_SESSION["flightNumber"] = $flightname;
+    $_SESSION["flightDate"] = $date;
 
-
-    $stmt = $mysqli->prepare("INSERT INTO booking (personID,seatRow,seatColumn,gateNo,flightNo,flightDate) VALUES (?,'4','5','D32',?,?)");
-    $stmt->bind_param("sss",$_SESSION["sesPersonID"], $flightname, $date);
-    $stmt->execute();
-    echo "Success! You have booked this flight.";
-
-    $stmt->close();
+    header("Location:showfare.php", true, 301);
 
 }
 

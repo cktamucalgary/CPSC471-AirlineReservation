@@ -45,11 +45,9 @@ if(!isset($_SESSION))
       WHERE DAirportCode=? AND AAirportCode=? AND flightDate=?");
     $stmt->bind_param("sss", $depart, $arrive, $date);
     $stmt->execute();
-    $stms->store_result();
-    $stms->bind_result($firstName);
-    $stms->fetch()
-    echo "Welcome, " . $firstName . "!";
+    $result = $stmt->get_result();
     if($result->num_rows === 0) exit('No flights found');
+
     while($row = $result->fetch_assoc()) {
       echo "Flight No: ". $row['flightNo']."<br>"
           ."Date: ". $row['flightDate']."<br>"
