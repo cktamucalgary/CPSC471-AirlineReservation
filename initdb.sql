@@ -120,12 +120,12 @@ CREATE TABLE CPSC471.Flight (
 	FOREIGN KEY (AAirportCode) REFERENCES Airport(airportCode)
 ) ENGINE=INNODB;
 
-INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-08','1','1h 19m','YYC','YVR','08:30','10:30','ABC123','A380');
-INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-09','2','9h 12m','YVR','NRT','13:25','10:31','DEF456','A380');
-INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-05','3','10h 45m','YYC','NRT','17:05','11:12','GHI789','777X');
-INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-10','1','1h 19m','YYC','AAA','08:30','10:30','ABC123','A380');
-INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-09','2','9h 12m','YVR','YWG','13:25','10:31','DEF456','A380');
-INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledAtime,planeNo,planeType) VALUES ('2019-04-05','3','10h 45m','YYC','YYJ','17:05','11:12','GHI789','777X');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES ('2019-04-08','1','1h 19m','YYC','YVR','08:30','10:30','ABC123','A380');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES ('2019-04-09','2','9h 12m','YVR','NRT','13:25','10:31','DEF456','A380');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES ('2019-04-05','3','10h 45m','YYC','NRT','17:05','11:12','GHI789','777X');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES ('2019-04-10','1','1h 19m','YYC','AAA','08:30','10:30','ABC123','A380');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES ('2019-04-09','2','9h 12m','YVR','YWG','13:25','10:31','DEF456','A380');
+INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES ('2019-04-05','3','10h 45m','YYC','YYJ','17:05','11:12','GHI789','777X');
 
 
 DROP TABLE IF EXISTS CPSC471.Booking;
