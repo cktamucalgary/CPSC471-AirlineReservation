@@ -109,14 +109,15 @@ CREATE TABLE CPSC471.Flight (
 	duration VARCHAR(255) NOT NULL,
 	DAirportCode VARCHAR(10) NOT NULL,
 	AAirportCode VARCHAR(10) NOT NULL,
-	scheduledDtime VARCHAR(10) NOT NULL,
-	scheduledAtime VARCHAR(10) NOT NULL,
+	scheduledDtime TIME NOT NULL,
+	scheduledAtime TIME NOT NULL,
 	planeNo VARCHAR(10) NOT NULL,
 	planeType VARCHAR(10) NOT NULL,
 	PRIMARY KEY (flightNo,flightDate),
 	FOREIGN KEY (adminID) REFERENCES Admin(personID),
 	FOREIGN KEY (DAirportCode) REFERENCES Airport(airportCode),
-	FOREIGN KEY (AAirportCode) REFERENCES Airport(airportCode)
+	FOREIGN KEY (AAirportCode) REFERENCES Airport(airportCode),
+	FOREIGN KEY (planeNo) REFERENCES Plane(serialNo)
 ) ENGINE=INNODB;
 
 INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES ('2019-04-08','1','1h 19m','YYC','YVR','08:30','10:30','ABC123','A380');
