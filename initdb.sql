@@ -25,7 +25,6 @@ CREATE TABLE CPSC471.Admin (
 	personID INT NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
-	isAdmin BOOLEAN NOT NULL,
 	PRIMARY KEY (personID),
 	FOREIGN KEY (personID) REFERENCES Person(personID),
 	UNIQUE(email)
@@ -187,7 +186,7 @@ INSERT INTO CPSC471.Fare(personID,seatRow,seatColumn,flightNo,flightdate,tax,pri
 DROP TABLE IF EXISTS CPSC471.CreditCard;
 CREATE TABLE CPSC471.CreditCard (
 	personID INT,
-	cardNumber INT NOT NULL,
+	cardNumber VARCHAR(12) NOT NULL,
 	expiryDate DATE NOT NULL,
 	FOREIGN KEY (personID) REFERENCES Member(personID)
 ) ENGINE=INNODB;

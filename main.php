@@ -17,11 +17,19 @@
        session_start();
    }
   if (isset($_SESSION["sesPersonID"])) {
-    echo "Welcome, " . $_SESSION["sesPersonID"] . ".";
-      $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
+    
+    $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
       if ($mysqli->connect_errno) {
         echo "Connection Error";
       }
+      $stms = $mysqli->prepare("SELECT firstName FROM Person WHERE personID=?");
+      $stms->bind_param("s", $_SESSION["sesPersonID"]);
+      $stms->execute();
+      $stms->store_result();
+      $stms->bind_result($firstName);
+      $stms->fetch();
+    echo "Welcome, " . $firstName . "!\n";
+      
       $stmt = $mysqli->prepare("SELECT * FROM booking,flight
         WHERE personID=? AND booking.flightNo = flight.flightNo");
       $stmt->bind_param("s", $_SESSION["sesPersonID"]);
