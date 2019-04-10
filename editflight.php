@@ -48,8 +48,8 @@ $stmt->bind_result($duration);
 $stmt->fetch();
 
   echo "<form action=\"editflight.php\" method=\"POST\">";
-  echo "Scheduled Departure Time: <br><input type=\"text\" name = \"dTime\" value = \"" . $departureTime . "\" ></br><br>";
-  echo "Scheduled Arrival Time: <br><input type=\"text\" name = \"aTime\" value = \"" . $arrivalTime . "\" ></br><br>";
+  echo "Scheduled Departure Time: <br><input type=\"time\" name = \"dTime\" value = \"" . $departureTime . "\" ></br><br>";
+  echo "Scheduled Arrival Time: <br><input type=\"time\" name = \"aTime\" value = \"" . $arrivalTime . "\" ></br><br>";
   echo "Duration: <br><input type=\"text\" name = \"duration\" value = \"" . $duration . "\" ></br><br>";
   echo "Confirm Edit <br><input type=\"checkbox\" name = \"check\"></br><br>";
   echo "<input type=\"submit\" name=\"editButton\" value = \"Edit Flight\" />";
