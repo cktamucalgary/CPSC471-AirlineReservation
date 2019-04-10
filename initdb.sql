@@ -136,7 +136,7 @@ CREATE TABLE CPSC471.Booking (
 	flightNo INT NOT NULL,
 	flightDate DATE NOT NULL,
 	travelClass VARCHAR(255) NOT NULL,
-	PRIMARY KEY (seatRow, seatColumn),
+	PRIMARY KEY (seatRow, seatColumn, flightNo, flightDate),
 	FOREIGN KEY (personID) REFERENCES Member(personID),
 	FOREIGN KEY (flightNo,flightDate) REFERENCES Flight(flightNo,flightDate)
 ) ENGINE=INNODB;
@@ -156,8 +156,7 @@ CREATE TABLE CPSC471.Baggage (
 	bagWidth DOUBLE NOT NULL,
 	bagWeight DOUBLE NOT NULL,
 	PRIMARY KEY (tagNo),
-	FOREIGN KEY (flightNo) REFERENCES Flight(flightNo),
-	FOREIGN KEY (seatRow,seatColumn) REFERENCES Booking(seatRow,seatColumn)
+	FOREIGN KEY (seatRow,seatColumn, flightNo) REFERENCES Booking(seatRow,seatColumn, flightNo)
 ) ENGINE=INNODB;
 
 INSERT INTO CPSC471.Baggage(seatRow,seatColumn,flightNo,bagLength,bagHeight,bagWidth,bagWeight) VALUES ('5','1','1','10','10','10','20.998');
