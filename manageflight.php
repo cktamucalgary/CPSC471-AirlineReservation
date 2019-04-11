@@ -11,7 +11,7 @@
 <form action="manageflight.php" method="POST">
   Flight Number <br><input type="text" name = "flightname" placeholder="Flight no." required/> </br><br>
   Flight Date <br><input type="date" name = "flightdate" required/></br><br>
-  <input type="submit" value = Book />
+  <input type="submit" value = "Search & Edit" />
 
   <?php
   if(isset($_POST['flightname']) && isset($_POST['flightdate'])) {
