@@ -44,6 +44,8 @@ $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
     $stms->store_result();
     if($stms->num_rows() == 1) {
       $_SESSION["sesIsAdmin"] = true;
+    } else {
+      $_SESSION["sesIsAdmin"] = false;
     }
     header("Location:main.php", true, 301);
     exit();

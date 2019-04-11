@@ -8,7 +8,9 @@
   session_start();
   echo "<li><a class=\"active\" href=\"main.php\">Home</a></li>";
   echo "<li><a href=\"searchflight.php\">Search Flights</a></li>";
-  echo "<li><a href=\"bookflight.php\">Book Flights</a></li>";
+  if (isset($_SESSION["sesIsAdmin"]) && $_SESSION["sesIsAdmin"] == 0) {
+    echo "<li><a href=\"bookflight.php\">Book Flights</a></li>";
+  }
   if (isset($_SESSION["sesIsAdmin"]) && $_SESSION["sesIsAdmin"] == 1) {
     echo "<li><a href=\"manageflight.php\">Manage Flights</a></li>";
     echo "<li><a href=\"addflight.php\">Add Flight</a></li>";

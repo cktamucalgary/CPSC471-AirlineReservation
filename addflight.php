@@ -53,6 +53,6 @@ else {
     $sql = "INSERT INTO CPSC471.Flight(flightDate,adminID,duration,DAirportcode,AAirportCode,scheduledDtime,scheduledAtime,planeNo,planeType) VALUES ('$date','1','$duration','$da','$aa','$dt','$at','$planeNo','$planeType');";
     if(mysqli_query($mysqli, $sql)){
     echo "Records added successfully.";
-    } 
+    }
   }
 ?>
