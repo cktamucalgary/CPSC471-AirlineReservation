@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Add Flights</title>
+  <title>Add Terminals</title>
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<h1>Add flights</h1>
+<h1>Add terminals</h1>
 <div class="boxDiv">
 <?php
 if(!isset($_SESSION))
