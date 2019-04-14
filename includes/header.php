@@ -15,6 +15,9 @@
     echo "<li><a href=\"manageflight.php\">Manage Flights</a></li>";
     echo "<li><a href=\"addflight.php\">Add Flight</a></li>";
     echo "<li><a href=\"deleteflight.php\">Delete Flight</a></li>";
+    echo "<li><a href=\"addterminal.php\">Add Terminal</a></li>";
+    echo "<li><a href=\"addairport.php\">Add Airport</a></li>";
+    echo "<li><a href=\"addplane.php\">Add Plane</a></li>";
   }
   if (isset($_SESSION["sesPersonID"])) {
     echo "<li style=\"float:right\"><a href=\"logout.php\">Logout</a></li>";
