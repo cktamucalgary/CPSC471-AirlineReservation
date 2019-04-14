@@ -11,13 +11,13 @@
 <?php
 	echo "<h2> View Flights </h2>";
 	 echo "<div class=\"boxDiv\">";
-  
+
   if(!isset($_SESSION))
    {
        session_start();
    }
   if (isset($_SESSION["sesPersonID"])) {
-    
+
     $mysqli = new mysqli("127.0.0.1", "root", "root", "CPSC471");
       if ($mysqli->connect_errno) {
         echo "Connection Error";
@@ -29,9 +29,9 @@
       $stms->bind_result($firstName);
       $stms->fetch();
     echo "Welcome, " . $firstName . "!\n";
-      
-      $stmt = $mysqli->prepare("SELECT * FROM booking,flight
-        WHERE personID=? AND booking.flightNo = flight.flightNo");
+
+      $stmt = $mysqli->prepare("SELECT * FROM booking,flight,terminal
+        WHERE personID=? AND booking.flightNo = flight.flightNo AND terminal.airportCode=flight.DAirportCode");
       $stmt->bind_param("s", $_SESSION["sesPersonID"]);
       $stmt->execute();
       $result = $stmt->get_result();
@@ -43,7 +43,8 @@
             ."Departure: ". $row['DAirportCode']."<br>"
             ."Arrival: ". $row['AAirportCode']."<br>"
           //  ."Time of Departure: ". $row['AAirportCode']."<br>"
-            ."Arrival Time: ". $row['scheduledAtime']."<br>";
+            ."Arrival Time: ". $row['scheduledAtime']."<br>"
+            ."Gate: ". $row['Gate']."<br>";
           // ."Fare: ". $row['AAirportCode']."<br>"
       }
 

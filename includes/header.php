@@ -5,7 +5,10 @@
 <body>
 <ul>
 <?php
-  session_start();
+if(!isset($_SESSION))
+   {
+       session_start();
+   }
   echo "<li><a class=\"active\" href=\"main.php\">Home</a></li>";
   echo "<li><a href=\"searchflight.php\">Search Flights</a></li>";
   if (isset($_SESSION["sesIsAdmin"]) && $_SESSION["sesIsAdmin"] == 0) {
