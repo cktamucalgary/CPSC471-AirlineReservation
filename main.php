@@ -29,9 +29,9 @@
       $stms->bind_result($firstName);
       $stms->fetch();
     echo "Welcome, " . $firstName . "!\n";
-
-      $stmt = $mysqli->prepare("SELECT * FROM booking,flight,terminal
-        WHERE personID=? AND booking.flightNo = flight.flightNo AND terminal.airportCode=flight.DAirportCode");
+      if (!isset($_SESSION['sesIsAdmin']) || !$_SESSION['sesIsAdmin']) {
+        $stmt = $mysqli->prepare("SELECT * FROM booking,flight
+        WHERE personID=? AND booking.flightNo = flight.flightNo");
       $stmt->bind_param("s", $_SESSION["sesPersonID"]);
       $stmt->execute();
       $result = $stmt->get_result();
@@ -47,6 +47,23 @@
             ."Gate: ". $row['Gate']."<br>";
           // ."Fare: ". $row['AAirportCode']."<br>"
       }
+      } else {
+        $stmt = $mysqli->prepare("SELECT * FROM flight");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if($result->num_rows === 0) exit('No flights found');
+        while($row = $result->fetch_assoc()) {
+          echo "<br>Flight No: ". $row['flightNo']."<br>"
+            ."Date: ". $row['flightDate']."<br>"
+            ."Duration: ". $row['duration']."<br>"
+            ."Departure: ". $row['DAirportCode']."<br>"
+            ."Arrival: ". $row['AAirportCode']."<br>"
+          //  ."Time of Departure: ". $row['AAirportCode']."<br>"
+            ."Arrival Time: ". $row['scheduledAtime']."<br>";
+          // ."Fare: ". $row['AAirportCode']."<br>"
+      }
+    }
+
 
       $stmt->close();
 
