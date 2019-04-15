@@ -42,9 +42,12 @@ else {
       echo "Connection Failed!";
     }
 
-    $sql = "INSERT INTO CPSC471.Terminal(airportCode, Gate, terminalType, terminalStatus) VALUES ('$acode','$gate','$termtype','$termstatus');";
+    $sql = "INSERT INTO CPSC471.Terminal(airportCode, Gate, terminalType, terminalStatus) VALUES ('$acode','$gate','$type','$status');";
     if(mysqli_query($mysqli, $sql)){
     echo "Records added successfully.";
     }
+	else{
+	echo "Cannot add terminal. Double check that the airport code exists.";
+	}
   }
 ?>
